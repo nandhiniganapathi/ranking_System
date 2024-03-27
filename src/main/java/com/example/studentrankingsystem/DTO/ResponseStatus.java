@@ -1,2 +1,6 @@
-package com.example.studentrankingsystem.DTO;public enum ResponseStatus {
+package com.example.studentrankingsystem.DTO;
+
+public enum ResponseStatus {
+    SUCCESS,
+    FAILURE;
 }

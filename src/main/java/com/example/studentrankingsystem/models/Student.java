@@ -3,53 +3,45 @@ package com.example.studentrankingsystem.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.security.auth.Subject;
-import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 @Setter
+@Getter
+
 public class Student {
     private int rollNumber;
     private String name;
     private List<Subjects> subjects;
-
-    public int getRollNumber() {
-        return rollNumber;
-    }
-
-    public void setRollNumber(int rollNumber) {
-        this.rollNumber = rollNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Subjects> getSubjects() {
-        return subjects;
-    }
-
-    public void setSubjects(List<Subjects> subjects) {
-        this.subjects = subjects;
-    }
+    private int Mark;
+    private int totalMarks;
 
     public Student(int rollNumber, String name, List<Subjects> subjects){
-this.rollNumber = rollNumber;
+    this.rollNumber = rollNumber;
     this.name = name;
     this.subjects = subjects;
 
+
  }
+//    public int getTotalMarks() {
+////        int totalMarks = subjects.stream()
+////                .mapToInt(Subjects::getMark)
+////                .peek(mark -> System.out.println("Adding mark: " + mark))
+////                .sum();
+////        System.out.println("Total marks: " + totalMarks);
+////        return totalMarks;
+////    }
     public int getTotalMarks() {
         int totalMarks = 0;
         for(Subjects subject :subjects)
             totalMarks += subject.getMark();
 
         return totalMarks;
+    }
+
+    public int getTotalMark() {
+        return subjects.stream()
+                .mapToInt(Subjects::getMark)
+                .sum();
     }
 
 

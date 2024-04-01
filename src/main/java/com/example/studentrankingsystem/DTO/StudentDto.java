@@ -1,6 +1,5 @@
 package com.example.studentrankingsystem.DTO;
 
-import com.example.studentrankingsystem.models.Subjects;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +10,17 @@ public class StudentDto {
     private int rollNumber;
     private String name;
     private List<SubjectDTO> subjects;
-    private int totalMarks;
+    private int TotalMarks;
 
+    public StudentDto(int rollNumber, String name, int TotalMarks) {
+        this.rollNumber = rollNumber;
+        this.name = name;
+        this.TotalMarks = TotalMarks;
+    }
 
+//    public int getTotalMarks() {
+//        return subjects.stream()
+//                .mapToInt(SubjectDTO::getMark)
+//                .sum();
+//    }
 }
